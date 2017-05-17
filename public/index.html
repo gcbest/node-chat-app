@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	</head>
+
+	<body>
+		<p>Welcome to the app</p>
+		<script src="/socket.io/socket.io.js"></script>
+		<script>
+			// making a request from the client to the server to open up a websocket and keep that connection open
+			var socket = io();
+
+			socket.on('connection', () => {
+				console.log('Connected to server');
+			});	
+
+			// whenever the connection drops
+			socket.on('disconnect', () => {
+				console.log('Disconnected from server');
+			});	
+		</script>
+	</body>
+
+</html>
