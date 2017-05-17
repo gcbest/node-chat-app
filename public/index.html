@@ -6,8 +6,15 @@
 
 	<body>
 		<p>Welcome to the app</p>
+		<ol id="messages"></ol>
+
+		<form action="" id="message-form">
+			<input name="message" type="text" placeholder="Message" />
+			<button>Send</button>
+		</form>
 		<script src="/socket.io/socket.io.js"></script>
-		<script src="../js/index.js"></script>
+		<script src="/libs/jquery-3.2.1.min.js"></script>
+		<script src="/js/index.js"></script>
 	</body>
 
 </html>

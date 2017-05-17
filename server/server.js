@@ -26,11 +26,11 @@ io.on('connection', (socket) => {
 	// broadcast emits a message to everyone except the person who created the message
 	socket.broadcast.emit('newMessage', generateMessage('Admin', 'New User Joined'));
 
-	socket.on('createMessage', (message) => {
+	// acknowledgments let the other party know the message has successfully been received
+	socket.on('createMessage', (message, callback) => {
 		console.log(message);
 		io.emit('newMessage', generateMessage(message.from, message.text));
-
-		
+		callback('This is your acknowledgment message');
 	});
 
 	socket.on('disconnect', () => {
