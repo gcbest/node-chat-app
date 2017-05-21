@@ -30,7 +30,19 @@ socket.on('connect', function () {
 			console.log('No error');
 		}
 	});
-});	
+});
+
+socket.on('updateUserList', function(usersArr) {
+	console.log('Users list', usersArr);
+	var ol = jQuery('<ol></ol>');
+
+	debugger;
+	usersArr.forEach(function(user) {
+		ol.append(jQuery('<li></li>').text(user));
+	});
+
+	jQuery('#users').html(ol);
+});
 
 // whenever the connection drops
 socket.on('disconnect', function () {
